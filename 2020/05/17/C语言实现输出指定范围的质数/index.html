@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>C语言实现输出指定范围的素数/质数 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="穷举素数Outdated：主函数中实现思路：1.判断区间为3～sqrt（本身）2.排除偶数&#x2F;&#x2F;被判断数和判断数中都排除">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言实现输出指定范围的素数&#x2F;质数">
+<meta property="og:url" content="http://example.com/2020/05/17/C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E8%BE%93%E5%87%BA%E6%8C%87%E5%AE%9A%E8%8C%83%E5%9B%B4%E7%9A%84%E8%B4%A8%E6%95%B0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="穷举素数Outdated：主函数中实现思路：1.判断区间为3～sqrt（本身）2.排除偶数&#x2F;&#x2F;被判断数和判断数中都排除">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/NicoNicoNi-LYF/imageHost/master/img/202110262201652.png">
+<meta property="article:published_time" content="2020-05-17T05:51:56.000Z">
+<meta property="article:modified_time" content="2021-10-26T14:01:36.465Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/NicoNicoNi-LYF/imageHost/master/img/202110262201652.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-C语言实现输出指定范围的质数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/05/17/C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E8%BE%93%E5%87%BA%E6%8C%87%E5%AE%9A%E8%8C%83%E5%9B%B4%E7%9A%84%E8%B4%A8%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2020-05-17T05:51:56.000Z" itemprop="datePublished">2020-05-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      C语言实现输出指定范围的素数/质数
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="穷举素数"><a href="#穷举素数" class="headerlink" title="穷举素数"></a>穷举素数</h2><h3 id="Outdated：主函数中实现"><a href="#Outdated：主函数中实现" class="headerlink" title="Outdated：主函数中实现"></a>Outdated：主函数中实现</h3><p><strong>思路：</strong><br>1.判断区间为3～sqrt（本身）<br>2.排除偶数&#x2F;&#x2F;被判断数和判断数中都排除</p>
+<span id="more"></span>
+<h4 id="一-素数在数组中顺序存储"><a href="#一-素数在数组中顺序存储" class="headerlink" title="一.素数在数组中顺序存储"></a>一.素数在数组中顺序存储</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> swap(a,b)&#123;a=a^b;b=a^b;a=a^b;&#125;<span class="comment">//定义数字交换的宏</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> sub=<span class="number">1</span>,sqr;<span class="comment">//定义sub记录下标,从1开始;定义sqr缩小判断范围</span></span><br><span class="line">   <span class="type">const</span> <span class="type">int</span> N=<span class="number">1000</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;输出2-%d之间的素数\n&quot;</span>,N);</span><br><span class="line">    <span class="type">int</span> prime[N]=&#123;<span class="number">2</span>,<span class="number">0</span>&#125;;<span class="comment">//定义数组存放素数,除prime[0]外全部初始化为0</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">3</span>;i&lt;=N;i+=<span class="number">2</span>)&#123;<span class="comment">//判断从3到N的奇数,排除大于2偶数</span></span><br><span class="line">        <span class="comment">// if(i%2==0) continue;//如果i为2的倍数,不是素数,继续下次循环 i++时</span></span><br><span class="line">        </span><br><span class="line">        sqr=<span class="built_in">sqrt</span>(i);</span><br><span class="line">        <span class="type">int</span> flag=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">3</span>;j&lt;=sqr;j+=<span class="number">2</span>)&#123;<span class="comment">//判断从3到sqr的奇数是否能整除i</span></span><br><span class="line">            <span class="keyword">if</span>(i%j==<span class="number">0</span>) &#123;</span><br><span class="line">                flag=<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag) <span class="keyword">continue</span>;<span class="comment">//如果能被整除,跳过该循环</span></span><br><span class="line">        </span><br><span class="line">        prime[sub++]=i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;sub;i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\t&quot;</span>,prime[i]);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> (<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="二-素数与数组下标相同"><a href="#二-素数与数组下标相同" class="headerlink" title="二.素数与数组下标相同"></a>二.素数与数组下标相同</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> swap(a,b)&#123;a=a^b;b=a^b;a=a^b;&#125;<span class="comment">//定义数字交换的宏</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> sqr;<span class="comment">//从1开始;定义sqr缩小判断范围</span></span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> N=<span class="number">1000</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;输出2-%d之间的素数\n&quot;</span>,N);</span><br><span class="line">    <span class="type">int</span> prime[N+<span class="number">1</span>]=&#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">0</span>&#125;;<span class="comment">//定义数组存放素数,除prime[2]外全部初始化为0</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">3</span>;i&lt;=N;i+=<span class="number">2</span>)&#123;<span class="comment">//判断从3到N的奇数,排除大于2偶数</span></span><br><span class="line">       <span class="comment">// if(i%2==0) continue;//如果i为2的倍数,不是素数,继续下次循环 i++时用</span></span><br><span class="line">        </span><br><span class="line">        sqr=<span class="built_in">sqrt</span>(i);</span><br><span class="line">        <span class="type">int</span> flag=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">3</span>;j&lt;=sqr;j+=<span class="number">2</span>)&#123;<span class="comment">//判断从3到sqr的奇数是否能整除i</span></span><br><span class="line">            <span class="keyword">if</span>(i%j==<span class="number">0</span>) &#123;</span><br><span class="line">                flag=<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag) <span class="keyword">continue</span>;<span class="comment">//如果能被整除,跳过该循环</span></span><br><span class="line">        </span><br><span class="line">        prime[i]=i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=N;i++)</span><br><span class="line">        <span class="keyword">if</span>(prime[i]!=<span class="number">0</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d\t&quot;</span>,prime[i]);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> (<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="新版本：主函数中实现"><a href="#新版本：主函数中实现" class="headerlink" title="新版本：主函数中实现"></a>新版本：主函数中实现</h3><p><strong>思路：</strong><br>1.大于2的偶数都不是质数，只对奇数进行整除判断<br>2.只整除小于等于no的平方根的质数&#x2F;&#x2F;由长方形面积和约数</p>
+<p><img src="https://raw.githubusercontent.com/NicoNicoNi-LYF/imageHost/master/img/202110262201652.png" alt="算法依据"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> *<span class="title function_">prime</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> prime[<span class="number">100000</span>]=&#123;<span class="number">0</span>&#125;;<span class="comment">//数组元素个数可以扩展</span></span><br><span class="line">    <span class="type">int</span> ptr =<span class="number">0</span>;</span><br><span class="line">    prime[ptr++]=<span class="number">2</span>;</span><br><span class="line">    prime[ptr++]=<span class="number">3</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> no=<span class="number">5</span>;no&lt;=n;no+=<span class="number">2</span>)&#123;<span class="comment">//大于2的偶数都不是质数</span></span><br><span class="line">        <span class="type">int</span> flag=<span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;prime[i]*prime[i]&lt;=no;i++)&#123;<span class="comment">//只整除小于等于no的平方根的质数</span></span><br><span class="line">            <span class="keyword">if</span> (no%prime[i]==<span class="number">0</span>) &#123;</span><br><span class="line">                flag=<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!flag)</span><br><span class="line">            prime[ptr++]=no;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> prime;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> N=<span class="number">100000</span>;<span class="comment">//求N及以下的素数</span></span><br><span class="line">    <span class="type">int</span> *a=prime(N);</span><br><span class="line">    <span class="type">int</span> counter=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;N/<span class="number">2</span>;i++)&#123;<span class="comment">//素数个数不会大于N/2</span></span><br><span class="line">        <span class="keyword">if</span>(a[i]==<span class="number">0</span>) <span class="keyword">break</span>;<span class="comment">//遇到0,则后面皆为0 跳出</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\t&quot;</span>,a[i]);</span><br><span class="line">        counter++;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n\t1~%d的素数y个数为:%d\n&quot;</span>,N,counter);<span class="comment">//测速时可以注释掉输出</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> (<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="算法性能直观测试"><a href="#算法性能直观测试" class="headerlink" title="算法性能直观测试"></a>算法性能直观测试</h2><p><strong>可以将主函数体放置于下面的代码测试</strong>不同算法的性能**</p>
+<pre><code class="java">#include &lt;ctime&gt;//需要额外添加该编译预处理指令
+
+int main(void) &#123;
+    int tstart ,tstop; //分别记录起始和结束时间
+    //测试函数花费时间
+    tstart=clock ();
+    ····················须测速代码
+    tstop=clock ();
+    printf(&quot;花费时间(ms):%d\n&quot;,tstop- tstart);//ms为单位
+    return (0);
+&#125;
+
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/05/17/C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E8%BE%93%E5%87%BA%E6%8C%87%E5%AE%9A%E8%8C%83%E5%9B%B4%E7%9A%84%E8%B4%A8%E6%95%B0/" data-id="cl1deb8pt0003rpwa4csq56hj" data-title="C语言实现输出指定范围的素数/质数" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/" rel="tag">C&#x2F;C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/05/18/%E7%BB%83%E4%B9%A0%E9%A1%B9%E7%9B%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          练习项目
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/11/%E4%B8%8D%E4%BC%9A%E7%9C%9F%E7%9A%84%E6%9C%89%E4%BA%BA%E4%B8%8D%E5%96%9C%E6%AC%A2%E5%B0%8F%E5%BC%A5%E5%AD%90%E5%90%A7-%E4%B8%8D%E4%BC%9A%E5%90%A7%E4%B8%8D%E4%BC%9A%E5%90%A7/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">不会真的有人不喜欢小弥子吧,不会吧不会吧</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ACG/">ACG</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/ACG/Anime/">Anime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ACG/Manga/">Manga</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B5%84%E6%96%99/">资料</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/" rel="tag">C&#x2F;C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%80%81%E5%A9%86/" rel="tag">老婆</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/%E8%80%81%E5%A9%86/" style="font-size: 20px;">老婆</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/10/23/%20%E8%BE%89%E5%A4%9C%E5%A4%A7%E5%B0%8F%E5%A7%90%E6%83%B3%E8%AE%A9%E6%88%91%E5%91%8A%E7%99%BD-%E5%90%8C%E4%BA%BA-%E6%AD%A3%E5%9C%A8%E4%BA%A4%E5%BE%80%E7%9A%84%E7%9F%B3%E4%B8%8A%E5%90%9B%E5%92%8C%E4%BC%8A%E4%BA%95%E9%87%8E%E5%90%8C%E5%AD%A6/">正在交往的石上君和伊井野同学]</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/17/Mac%E6%9D%82%E5%9D%9B%E2%80%94%E2%80%94%E8%BD%AF%E4%BB%B6%E3%80%81%E6%8A%80%E6%9C%AF%E3%80%81%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">Mac杂坛——软件、技术、经验分享</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/08/%E5%98%A4/">嘤</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/26/%E5%AE%9E%E7%94%A8%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/">实用网站集合</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/18/JavaWeb%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">JavaWeb学习笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

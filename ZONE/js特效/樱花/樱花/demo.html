@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="樱花雨   html, body{   width: 100%;   height: 100%;   margin: 0;   padding: 0;   overflow: hidden; } .container{   width: 100%;   height: 100%;   margin: 0;   padding: 0;   background-color: #000000;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/ZONE/js%E7%89%B9%E6%95%88/%E6%A8%B1%E8%8A%B1/%E6%A8%B1%E8%8A%B1/demo.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="樱花雨   html, body{   width: 100%;   height: 100%;   margin: 0;   padding: 0;   overflow: hidden; } .container{   width: 100%;   height: 100%;   margin: 0;   padding: 0;   background-color: #000000;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-30T09:31:37.600Z">
+<meta property="article:modified_time" content="2018-03-31T22:29:34.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/ZONE/js%E7%89%B9%E6%95%88/%E6%A8%B1%E8%8A%B1/%E6%A8%B1%E8%8A%B1/demo.html" class="article-date">
+  <time class="dt-published" datetime="2022-03-30T09:31:37.600Z" itemprop="datePublished">2022-03-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>樱花雨</title>
+<script src="js/jquery.min.js"></script>
+<style>
+html, body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.container{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+}</style>
+</head>
+<body>
+<div id="jsi-cherry-container" class="container"></div>
+
+<script>
+var RENDERER = {
+	INIT_CHERRY_BLOSSOM_COUNT : 30,
+	MAX_ADDING_INTERVAL : 10,
+	
+	init : function(){
+		this.setParameters();
+		this.reconstructMethods();
+		this.createCherries();
+		this.render();
+	},
+	setParameters : function(){
+		this.$container = $('#jsi-cherry-container');
+		this.width = this.$container.width();
+		this.height = this.$container.height();
+		this.context = $('<canvas />').attr({width : this.width, height : this.height}).appendTo(this.$container).get(0).getContext('2d');
+		this.cherries = [];
+		this.maxAddingInterval = Math.round(this.MAX_ADDING_INTERVAL * 1000 / this.width);
+		this.addingInterval = this.maxAddingInterval;
+	},
+	reconstructMethods : function(){
+		this.render = this.render.bind(this);
+	},
+	createCherries : function(){
+		for(var i = 0, length = Math.round(this.INIT_CHERRY_BLOSSOM_COUNT * this.width / 1000); i < length; i++){
+			this.cherries.push(new CHERRY_BLOSSOM(this, true));
+		}
+	},
+	render : function(){
+		requestAnimationFrame(this.render);
+		this.context.clearRect(0, 0, this.width, this.height);
+		
+		this.cherries.sort(function(cherry1, cherry2){
+			return cherry1.z - cherry2.z;
+		});
+		for(var i = this.cherries.length - 1; i >= 0; i--){
+			if(!this.cherries[i].render(this.context)){
+				this.cherries.splice(i, 1);
+			}
+		}
+		if(--this.addingInterval == 0){
+			this.addingInterval = this.maxAddingInterval;
+			this.cherries.push(new CHERRY_BLOSSOM(this, false));
+		}
+	}
+};
+var CHERRY_BLOSSOM = function(renderer, isRandom){
+	this.renderer = renderer;
+	this.init(isRandom);
+};
+CHERRY_BLOSSOM.prototype = {
+	FOCUS_POSITION : 300,
+	FAR_LIMIT : 600,
+	MAX_RIPPLE_COUNT : 100,
+	RIPPLE_RADIUS : 100,
+	SURFACE_RATE : 0.5,
+	SINK_OFFSET : 20,
+	
+	init : function(isRandom){
+		this.x = this.getRandomValue(-this.renderer.width, this.renderer.width);
+		this.y = isRandom ? this.getRandomValue(0, this.renderer.height) : this.renderer.height * 1.5;
+		this.z = this.getRandomValue(0, this.FAR_LIMIT);
+		this.vx = this.getRandomValue(-2, 2);
+		this.vy = -2;
+		this.theta = this.getRandomValue(0, Math.PI * 2);
+		this.phi = this.getRandomValue(0, Math.PI * 2);
+		this.psi = 0;
+		this.dpsi = this.getRandomValue(Math.PI / 600, Math.PI / 300);
+		this.opacity = 0;
+		this.endTheta = false;
+		this.endPhi = false;
+		this.rippleCount = 0;
+		
+		var axis = this.getAxis(),
+			theta = this.theta + Math.ceil(-(this.y + this.renderer.height * this.SURFACE_RATE) / this.vy) * Math.PI / 500;
+		theta %= Math.PI * 2;
+		
+		this.offsetY = 40 * ((theta <= Math.PI / 2 || theta >= Math.PI * 3 / 2) ? -1 : 1);
+		this.thresholdY = this.renderer.height / 2 + this.renderer.height * this.SURFACE_RATE * axis.rate;
+		this.entityColor = this.renderer.context.createRadialGradient(0, 40, 0, 0, 40, 80);
+		this.entityColor.addColorStop(0, 'hsl(330, 70%, ' + 50 * (0.3 + axis.rate) + '%)');
+		this.entityColor.addColorStop(0.05, 'hsl(330, 40%,' + 55 * (0.3 + axis.rate) + '%)');
+		this.entityColor.addColorStop(1, 'hsl(330, 20%, ' + 70 * (0.3 + axis.rate) + '%)');
+		this.shadowColor = this.renderer.context.createRadialGradient(0, 40, 0, 0, 40, 80);
+		this.shadowColor.addColorStop(0, 'hsl(330, 40%, ' + 30 * (0.3 + axis.rate) + '%)');
+		this.shadowColor.addColorStop(0.05, 'hsl(330, 40%,' + 30 * (0.3 + axis.rate) + '%)');
+		this.shadowColor.addColorStop(1, 'hsl(330, 20%, ' + 40 * (0.3 + axis.rate) + '%)');
+	},
+	getRandomValue : function(min, max){
+		return min + (max - min) * Math.random();
+	},
+	getAxis : function(){
+		var rate = this.FOCUS_POSITION / (this.z + this.FOCUS_POSITION),
+			x = this.renderer.width / 2 + this.x * rate,
+			y = this.renderer.height / 2 - this.y * rate;
+		return {rate : rate, x : x, y : y};
+	},
+	renderCherry : function(context, axis){
+		context.beginPath();
+		context.moveTo(0, 40);
+		context.bezierCurveTo(-60, 20, -10, -60, 0, -20);
+		context.bezierCurveTo(10, -60, 60, 20, 0, 40);
+		context.fill();
+		
+		for(var i = -4; i < 4; i++){
+			context.beginPath();
+			context.moveTo(0, 40);
+			context.quadraticCurveTo(i * 12, 10, i * 4, -24 + Math.abs(i) * 2);
+			context.stroke();
+		}
+	},
+	render : function(context){
+		var axis = this.getAxis();
+		
+		if(axis.y == this.thresholdY && this.rippleCount < this.MAX_RIPPLE_COUNT){
+			context.save();
+			context.lineWidth = 2;
+			context.strokeStyle = 'hsla(0, 0%, 100%, ' + (this.MAX_RIPPLE_COUNT - this.rippleCount) / this.MAX_RIPPLE_COUNT + ')';
+			context.translate(axis.x + this.offsetY * axis.rate * (this.theta <= Math.PI ? -1 : 1), axis.y);
+			context.scale(1, 0.3);
+			context.beginPath();
+			context.arc(0, 0, this.rippleCount / this.MAX_RIPPLE_COUNT * this.RIPPLE_RADIUS * axis.rate, 0, Math.PI * 2, false);
+			context.stroke();
+			context.restore();
+			this.rippleCount++;
+		}
+		if(axis.y < this.thresholdY || (!this.endTheta || !this.endPhi)){
+			if(this.y <= 0){
+				this.opacity = Math.min(this.opacity + 0.01, 1);
+			}
+			context.save();
+			context.globalAlpha = this.opacity;
+			context.fillStyle = this.shadowColor;
+			context.strokeStyle = 'hsl(330, 30%,' + 40 * (0.3 + axis.rate) + '%)';
+			context.translate(axis.x, Math.max(axis.y, this.thresholdY + this.thresholdY - axis.y));
+			context.rotate(Math.PI - this.theta);
+			context.scale(axis.rate * -Math.sin(this.phi), axis.rate);
+			context.translate(0, this.offsetY);
+			this.renderCherry(context, axis);
+			context.restore();
+		}
+		context.save();
+		context.fillStyle = this.entityColor;
+		context.strokeStyle = 'hsl(330, 40%,' + 70 * (0.3 + axis.rate) + '%)';
+		context.translate(axis.x, axis.y + Math.abs(this.SINK_OFFSET * Math.sin(this.psi) * axis.rate));
+		context.rotate(this.theta);
+		context.scale(axis.rate * Math.sin(this.phi), axis.rate);
+		context.translate(0, this.offsetY);
+		this.renderCherry(context, axis);
+		context.restore();
+		
+		if(this.y <= -this.renderer.height / 4){
+			if(!this.endTheta){
+				for(var theta = Math.PI / 2, end = Math.PI * 3 / 2; theta <= end; theta += Math.PI){
+					if(this.theta < theta && this.theta + Math.PI / 200 > theta){
+						this.theta = theta;
+						this.endTheta = true;
+						break;
+					}
+				}
+			}
+			if(!this.endPhi){
+				for(var phi = Math.PI / 8, end = Math.PI * 7 / 8; phi <= end; phi += Math.PI * 3 / 4){
+					if(this.phi < phi && this.phi + Math.PI / 200 > phi){
+						this.phi = Math.PI / 8;
+						this.endPhi = true;
+						break;
+					}
+				}
+			}
+		}
+		if(!this.endTheta){
+			if(axis.y == this.thresholdY){
+				this.theta += Math.PI / 200 * ((this.theta < Math.PI / 2 || (this.theta >= Math.PI && this.theta < Math.PI * 3 / 2)) ? 1 : -1);
+			}else{
+				this.theta += Math.PI / 500;
+			}
+			this.theta %= Math.PI * 2;
+		}
+		if(this.endPhi){
+			if(this.rippleCount == this.MAX_RIPPLE_COUNT){
+				this.psi += this.dpsi;
+				this.psi %= Math.PI * 2;
+			}
+		}else{
+			this.phi += Math.PI / ((axis.y == this.thresholdY) ? 200 : 500);
+			this.phi %= Math.PI;
+		}
+		if(this.y <= -this.renderer.height * this.SURFACE_RATE){
+			this.x += 2;
+			this.y = -this.renderer.height * this.SURFACE_RATE;
+		}else{
+			this.x += this.vx;
+			this.y += this.vy;
+		}
+		return this.z > -this.FOCUS_POSITION && this.z < this.FAR_LIMIT && this.x < this.renderer.width * 1.5;
+	}
+};
+$(function(){
+	RENDERER.init();
+});</script>
+
+</body>
+</html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/ZONE/js%E7%89%B9%E6%95%88/%E6%A8%B1%E8%8A%B1/%E6%A8%B1%E8%8A%B1/demo.html" data-id="cl1deb8qh001lrpwa0ero293t" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ACG/">ACG</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/ACG/Anime/">Anime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ACG/Manga/">Manga</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B5%84%E6%96%99/">资料</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/" rel="tag">C&#x2F;C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%80%81%E5%A9%86/" rel="tag">老婆</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/%E8%80%81%E5%A9%86/" style="font-size: 20px;">老婆</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/10/23/%20%E8%BE%89%E5%A4%9C%E5%A4%A7%E5%B0%8F%E5%A7%90%E6%83%B3%E8%AE%A9%E6%88%91%E5%91%8A%E7%99%BD-%E5%90%8C%E4%BA%BA-%E6%AD%A3%E5%9C%A8%E4%BA%A4%E5%BE%80%E7%9A%84%E7%9F%B3%E4%B8%8A%E5%90%9B%E5%92%8C%E4%BC%8A%E4%BA%95%E9%87%8E%E5%90%8C%E5%AD%A6/">正在交往的石上君和伊井野同学]</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/17/Mac%E6%9D%82%E5%9D%9B%E2%80%94%E2%80%94%E8%BD%AF%E4%BB%B6%E3%80%81%E6%8A%80%E6%9C%AF%E3%80%81%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">Mac杂坛——软件、技术、经验分享</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/08/%E5%98%A4/">嘤</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/26/%E5%AE%9E%E7%94%A8%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/">实用网站集合</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/18/JavaWeb%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">JavaWeb学习笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
