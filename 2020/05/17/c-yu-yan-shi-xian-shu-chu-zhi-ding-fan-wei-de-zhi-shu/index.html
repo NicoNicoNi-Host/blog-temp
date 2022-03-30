@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="JavaWeb学习笔记, 今日方知我是我">
+    <meta name="keywords" content="C语言实现输出指定范围的素数/质数, 今日方知我是我">
     <meta name="description" content="人类的赞歌是勇气的赞歌，人类的伟大是勇气的伟大">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>JavaWeb学习笔记 | Nico</title>
+    <title>C语言实现输出指定范围的素数/质数 | Nico</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.1.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <head>
@@ -271,12 +271,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/ACG-31.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/ACG-28.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">JavaWeb学习笔记</h1>
+                    <h1 class="description center-align post-title">C语言实现输出指定范围的素数/质数</h1>
                 </div>
             </div>
         </div>
@@ -391,9 +391,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/C-C/">
+                                <span class="chip bg-color">C/C++</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -401,8 +405,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                学习笔记
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
                             </a>
                         
                     </div>
@@ -414,7 +418,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-05-18
+                    2020-05-17
                 </div>
                 
 
@@ -430,98 +434,128 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="JavaWeb学习笔记"><a href="#JavaWeb学习笔记" class="headerlink" title="JavaWeb学习笔记"></a>JavaWeb学习笔记</h1><h2 id="1、基本概念"><a href="#1、基本概念" class="headerlink" title="1、基本概念"></a>1、基本概念</h2><h3 id="1-1、前言"><a href="#1-1、前言" class="headerlink" title="1.1、前言"></a>1.1、前言</h3><p>web开发：</p>
-<ul>
-<li>web，网页的意思  ， <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></li>
-<li>静态web<ul>
-<li>html，css</li>
-<li>提供给所有人看的数据始终不会发生变化！</li>
-</ul>
-</li>
-<li>动态web<ul>
-<li>淘宝，几乎是所有的网站；</li>
-<li>提供给所有人看的数据始终会发生变化，每个人在不同的时间，不同的地点看到的信息各不相同！</li>
-<li>技术栈：Servlet&#x2F;JSP，ASP，PHP</li>
-</ul>
-</li>
-</ul>
-<p>在Java中，动态web资源开发的技术统称为JavaWeb；</p>
-<h3 id="1-2、web应用程序"><a href="#1-2、web应用程序" class="headerlink" title="1.2、web应用程序"></a>1.2、web应用程序</h3><p>web应用程序：可以提供浏览器访问的程序；</p>
-<ul>
-<li>a.html、b.html……多个web资源，这些web资源可以被外界访问，对外界提供服务；</li>
-<li>你们能访问到的任何一个页面或者资源，都存在于这个世界的某一个角落的计算机上。</li>
-<li>URL </li>
-<li>这个统一的web资源会被放在同一个文件夹下，web应用程序–&gt;Tomcat：服务器</li>
-<li>一个web应用由多部分组成 （静态web，动态web）<ul>
-<li>html，css，js</li>
-<li>jsp，servlet</li>
-<li>Java程序</li>
-<li>jar包</li>
-<li>配置文件 （Properties）</li>
-</ul>
-</li>
-</ul>
-<p>web应用程序编写完毕后，若想提供给外界访问：需要一个服务器来统一管理；</p>
-<h3 id="1-3、静态web"><a href="#1-3、静态web" class="headerlink" title="1.3、静态web"></a>1.3、静态web</h3><ul>
-<li>*.htm, *.html,这些都是网页的后缀，如果服务器上一直存在这些东西，我们就可以直接进行读取。通络；</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/NicoNicoNi-LYF/imageHost/master/img/202110262203431.png" alt="i-100001"></p>
-<ul>
-<li>静态web存在的缺点<ul>
-<li>Web页面无法动态更新，所有用户看到都是同一个页面<ul>
-<li>轮播图，点击特效：伪动态</li>
-<li>JavaScript [实际开发中，它用的最多]</li>
-<li>VBScript</li>
-</ul>
-</li>
-<li>它无法和数据库交互（数据无法持久化，用户无法交互）</li>
-</ul>
-</li>
-</ul>
-<h3 id="1-4、动态web"><a href="#1-4、动态web" class="headerlink" title="1.4、动态web"></a>1.4、动态web</h3><p>页面会动态展示： “Web的页面展示的效果因人而异”；</p>
-<p><img src="https://raw.githubusercontent.com/NicoNicoNi-LYF/imageHost/master/img/202110262203929.png" alt="1567823191289"></p>
-<p>缺点：</p>
-<ul>
-<li>加入服务器的动态web资源出现了错误，我们需要重新编写我们的<strong>后台程序</strong>,重新发布；<ul>
-<li>停机维护</li>
-</ul>
-</li>
-</ul>
-<p>优点：</p>
-<ul>
-<li>Web页面可以动态更新，所有用户看到都不是同一个页面</li>
-<li>它可以与数据库交互 （数据持久化：注册，商品信息，用户信息……..）</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/NicoNicoNi-LYF/imageHost/master/img/202110262202749.png" alt="1567823350584"></p>
-<h2 id="2、web服务器"><a href="#2、web服务器" class="headerlink" title="2、web服务器"></a>2、web服务器</h2><h3 id="2-1、技术讲解"><a href="#2-1、技术讲解" class="headerlink" title="2.1、技术讲解"></a>2.1、技术讲解</h3><p><strong>ASP:</strong></p>
-<ul>
-<li><p>微软：国内最早流行的就是ASP；</p>
-</li>
-<li><p>在HTML中嵌入了VB的脚本，  ASP + COM；</p>
-</li>
-<li><p>在ASP开发中，基本一个页面都有几千行的业务代码，页面极其换乱</p>
-</li>
-<li><p>维护成本高！</p>
-</li>
-<li><p>C# </p>
-</li>
-<li><p>IIS</p>
-</li>
-</ul>
-<p><strong>php：</strong></p>
-<ul>
-<li>PHP开发速度很快，功能很强大，跨平台，代码很简单 （70% , WP）</li>
-<li>无法承载大访问量的情况（局限性）</li>
-</ul>
-<p>**JSP&#x2F;Servlet : ** </p>
-<p>B&#x2F;S：浏览和服务器</p>
-<p>C&#x2F;S:  客户端和服务器</p>
-<ul>
-<li>sun公司主推的B&#x2F;S架构</li>
-<li>基于Java语言的 (所有的大公司，或者一些开源的组件，都是用Java写的)</li>
-<li>可以承载三高问题带来的影响；</li>
-<li>语法像ASP ， ASP–&gt;JSP , 加强市场强度；</li>
-</ul>
+                <h2 id="穷举素数"><a href="#穷举素数" class="headerlink" title="穷举素数"></a>穷举素数</h2><h3 id="Outdated：主函数中实现"><a href="#Outdated：主函数中实现" class="headerlink" title="Outdated：主函数中实现"></a>Outdated：主函数中实现</h3><p><strong>思路：</strong><br>1.判断区间为3～sqrt（本身）<br>2.排除偶数//被判断数和判断数中都排除</p>
+<span id="more"></span>
+<h4 id="一-素数在数组中顺序存储"><a href="#一-素数在数组中顺序存储" class="headerlink" title="一.素数在数组中顺序存储"></a>一.素数在数组中顺序存储</h4><pre><code class="C">#include&lt;stdio.h&gt;
+#include&lt;math.h&gt;
+#define swap(a,b)&#123;a=a^b;b=a^b;a=a^b;&#125;//定义数字交换的宏
+
+int main(void) &#123;
+    
+    
+    int sub=1,sqr;//定义sub记录下标,从1开始;定义sqr缩小判断范围
+   const int N=1000;
+    printf(&quot;输出2-%d之间的素数\n&quot;,N);
+    int prime[N]=&#123;2,0&#125;;//定义数组存放素数,除prime[0]外全部初始化为0
+    for(int i=3;i&lt;=N;i+=2)&#123;//判断从3到N的奇数,排除大于2偶数
+        // if(i%2==0) continue;//如果i为2的倍数,不是素数,继续下次循环 i++时
+        
+        sqr=sqrt(i);
+        int flag=0;
+        for(int j=3;j&lt;=sqr;j+=2)&#123;//判断从3到sqr的奇数是否能整除i
+            if(i%j==0) &#123;
+                flag=1;
+                break;
+            &#125;
+        &#125;
+        if(flag) continue;//如果能被整除,跳过该循环
+        
+        prime[sub++]=i;
+    &#125;
+    for(int i=0;i&lt;sub;i++)
+        printf(&quot;%d\t&quot;,prime[i]);
+    puts(&quot;&quot;);
+    
+    return (0);
+&#125;
+</code></pre>
+<h4 id="二-素数与数组下标相同"><a href="#二-素数与数组下标相同" class="headerlink" title="二.素数与数组下标相同"></a>二.素数与数组下标相同</h4><pre><code class="C">#include&lt;stdio.h&gt;
+#include&lt;math.h&gt;
+#define swap(a,b)&#123;a=a^b;b=a^b;a=a^b;&#125;//定义数字交换的宏
+
+int main(void) &#123;
+    
+    
+    int sqr;//从1开始;定义sqr缩小判断范围
+    const int N=1000;
+    printf(&quot;输出2-%d之间的素数\n&quot;,N);
+    int prime[N+1]=&#123;0,0,2,0&#125;;//定义数组存放素数,除prime[2]外全部初始化为0
+    for(int i=3;i&lt;=N;i+=2)&#123;//判断从3到N的奇数,排除大于2偶数
+       // if(i%2==0) continue;//如果i为2的倍数,不是素数,继续下次循环 i++时用
+        
+        sqr=sqrt(i);
+        int flag=0;
+        for(int j=3;j&lt;=sqr;j+=2)&#123;//判断从3到sqr的奇数是否能整除i
+            if(i%j==0) &#123;
+                flag=1;
+                break;
+            &#125;
+        &#125;
+        if(flag) continue;//如果能被整除,跳过该循环
+        
+        prime[i]=i;
+    &#125;
+    for(int i=0;i&lt;=N;i++)
+        if(prime[i]!=0)
+            printf(&quot;%d\t&quot;,prime[i]);
+    puts(&quot;&quot;);
+    
+    return (0);
+&#125;
+</code></pre>
+<h3 id="新版本：主函数中实现"><a href="#新版本：主函数中实现" class="headerlink" title="新版本：主函数中实现"></a>新版本：主函数中实现</h3><p><strong>思路：</strong><br>1.大于2的偶数都不是质数，只对奇数进行整除判断<br>2.只整除小于等于no的平方根的质数//由长方形面积和约数</p>
+<p><img src="https://raw.githubusercontent.com/NicoNicoNi-LYF/imageHost/master/img/202110262201652.png" alt="算法依据"></p>
+<pre><code class="C">#include&lt;stdio.h&gt;
+
+int *prime(int n)&#123;
+    int prime[100000]=&#123;0&#125;;//数组元素个数可以扩展
+    int ptr =0;
+    prime[ptr++]=2;
+    prime[ptr++]=3;
+    for(int no=5;no&lt;=n;no+=2)&#123;//大于2的偶数都不是质数
+        int flag=0;
+        
+        for(int i=1;prime[i]*prime[i]&lt;=no;i++)&#123;//只整除小于等于no的平方根的质数
+            if (no%prime[i]==0) &#123;
+                flag=1;
+                break;
+            &#125;
+        &#125;
+        if(!flag)
+            prime[ptr++]=no;
+    &#125;
+    
+    return prime;
+&#125;
+int main(void) &#123;
+    const int N=100000;//求N及以下的素数
+    int *a=prime(N);
+    int counter=0;
+    for(int i=0;i&lt;N/2;i++)&#123;//素数个数不会大于N/2
+        if(a[i]==0) break;//遇到0,则后面皆为0 跳出
+        printf(&quot;%d\t&quot;,a[i]);
+        counter++;
+        
+    &#125;
+    printf(&quot;\n\t1~%d的素数y个数为:%d\n&quot;,N,counter);//测速时可以注释掉输出
+    
+    return (0);
+&#125;
+</code></pre>
+<h2 id="算法性能直观测试"><a href="#算法性能直观测试" class="headerlink" title="算法性能直观测试"></a>算法性能直观测试</h2><p><strong>可以将主函数体放置于下面的代码测试</strong>不同算法的性能**</p>
+<pre><code class="java">#include &lt;ctime&gt;//需要额外添加该编译预处理指令
+
+int main(void) &#123;
+    int tstart ,tstop; //分别记录起始和结束时间
+    //测试函数花费时间
+    tstart=clock ();
+    ····················须测速代码
+    tstop=clock ();
+    printf(&quot;花费时间(ms):%d\n&quot;,tstop- tstart);//ms为单位
+    return (0);
+&#125;
+
+</code></pre>
 
             </div>
             <hr/>
@@ -547,7 +581,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://niconicoli.com/2020/05/18/JavaWeb%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">https://niconicoli.com/2020/05/18/JavaWeb%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a>
+                    <a href="https://niconicoli.com/2020/05/17/c-yu-yan-shi-xian-shu-chu-zhi-ding-fan-wei-de-zhi-shu/">https://niconicoli.com/2020/05/17/c-yu-yan-shi-xian-shu-chu-zhi-ding-fan-wei-de-zhi-shu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -584,7 +618,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/tags/C-C/">
+                                    <span class="chip bg-color">C/C++</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -628,52 +666,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/05/26/%E5%AE%9E%E7%94%A8%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/ACG-18.jpg" class="responsive-img" alt="实用网站集合">
-                        
-                        <span class="card-title">实用网站集合</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            爱生活
-AI音乐推荐： [https://www.gnoosic.com/faves.php/)
-RAP： [https://foreignrap.com/)
-壁纸    [https://wallhaven.cc/)
-私人定制    [w
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-26
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%B5%84%E6%96%99/" class="post-category">
-                                    资料
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/05/18/%E7%BB%83%E4%B9%A0%E9%A1%B9%E7%9B%AE/">
+                <a href="/2020/05/18/lian-xi-xiang-mu/">
                     <div class="card-image">
                         
                         
@@ -696,9 +689,9 @@ More info: 固定栏
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-18
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-18
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -710,6 +703,73 @@ More info: 固定栏
                             
                         </span>
                     </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/05/11/bu-hui-zhen-de-you-ren-bu-xi-huan-xiao-mi-zi-ba-bu-hui-ba-bu-hui-ba/">
+                    <div class="card-image">
+                        
+                        <img src="https://niconiconi-lyf.github.io/2020/05/11/bu-hui-zhen-de-you-ren-bu-xi-huan-xiao-mi-zi-ba-bu-hui-ba-bu-hui-ba/小弥子-3.JP2" class="responsive-img" alt="不会真的有人不喜欢小弥子吧,不会吧不会吧">
+                        
+                        <span class="card-title">不会真的有人不喜欢小弥子吧,不会吧不会吧</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+能看见会动的小弥子我就很满足了mikomikomi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ACG/" class="post-category">
+                                    ACG
+                                </a>
+                            
+                            <a href="/categories/ACG/Anime/" class="post-category">
+                                    Anime
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%80%81%E5%A9%86/">
+                        <span class="chip bg-color">老婆</span>
+                    </a>
+                    
                 </div>
                 
             </div>
