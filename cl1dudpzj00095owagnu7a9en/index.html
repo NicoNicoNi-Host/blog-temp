@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="C语言实现输出指定范围的素数/质数, 今日方知我是我">
+    <meta name="keywords" content="Mac杂坛——软件、技术、经验分享, 今日方知我是我">
     <meta name="description" content="人类的赞歌是勇气的赞歌，人类的伟大是勇气的伟大">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>C语言实现输出指定范围的素数/质数 | Nico</title>
+    <title>Mac杂坛——软件、技术、经验分享 | Nico</title>
     <link rel="icon" type="image/png" href="/blog-temp/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blog-temp/libs/awesome/css/all.css">
@@ -271,12 +271,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blog-temp/medias/featureimages/ACG-28.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog-temp/medias/featureimages/ACG-10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">C语言实现输出指定范围的素数/质数</h1>
+                    <h1 class="description center-align post-title">Mac杂坛——软件、技术、经验分享</h1>
                 </div>
             </div>
         </div>
@@ -391,13 +391,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/blog-temp/tags/C-C/">
-                                <span class="chip bg-color">C/C++</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -405,8 +401,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/blog-temp/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/blog-temp/categories/%E8%B5%84%E6%96%99/" class="post-category">
+                                资料
                             </a>
                         
                     </div>
@@ -418,7 +414,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-05-17
+                    2021-09-17
                 </div>
                 
 
@@ -434,127 +430,61 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="穷举素数"><a href="#穷举素数" class="headerlink" title="穷举素数"></a>穷举素数</h2><h3 id="Outdated：主函数中实现"><a href="#Outdated：主函数中实现" class="headerlink" title="Outdated：主函数中实现"></a>Outdated：主函数中实现</h3><p><strong>思路：</strong><br>1.判断区间为3～sqrt（本身）<br>2.排除偶数//被判断数和判断数中都排除</p>
-<span id="more"></span>
-<h4 id="一-素数在数组中顺序存储"><a href="#一-素数在数组中顺序存储" class="headerlink" title="一.素数在数组中顺序存储"></a>一.素数在数组中顺序存储</h4><pre><code class="C">#include&lt;stdio.h&gt;
-#include&lt;math.h&gt;
-#define swap(a,b)&#123;a=a^b;b=a^b;a=a^b;&#125;//定义数字交换的宏
-
-int main(void) &#123;
-    
-    
-    int sub=1,sqr;//定义sub记录下标,从1开始;定义sqr缩小判断范围
-   const int N=1000;
-    printf(&quot;输出2-%d之间的素数\n&quot;,N);
-    int prime[N]=&#123;2,0&#125;;//定义数组存放素数,除prime[0]外全部初始化为0
-    for(int i=3;i&lt;=N;i+=2)&#123;//判断从3到N的奇数,排除大于2偶数
-        // if(i%2==0) continue;//如果i为2的倍数,不是素数,继续下次循环 i++时
-        
-        sqr=sqrt(i);
-        int flag=0;
-        for(int j=3;j&lt;=sqr;j+=2)&#123;//判断从3到sqr的奇数是否能整除i
-            if(i%j==0) &#123;
-                flag=1;
-                break;
-            &#125;
-        &#125;
-        if(flag) continue;//如果能被整除,跳过该循环
-        
-        prime[sub++]=i;
-    &#125;
-    for(int i=0;i&lt;sub;i++)
-        printf(&quot;%d\t&quot;,prime[i]);
-    puts(&quot;&quot;);
-    
-    return (0);
-&#125;
+                <h1 id="Mac杂坛——软件、技术、经验分享"><a href="#Mac杂坛——软件、技术、经验分享" class="headerlink" title="Mac杂坛——软件、技术、经验分享"></a>Mac杂坛——软件、技术、经验分享</h1><p><a target="_blank" rel="noopener" href="https://www.mintimate.cn/2019/06/26/Mac%E6%9D%82%E5%9D%9B/">原文链接</a></p>
+<h1 id="Mac软件分享"><a href="#Mac软件分享" class="headerlink" title="Mac软件分享"></a><a href="#Mac%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB" title="Mac软件分享"></a>Mac软件分享<a href="#Mac%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB"></a></h1><h2 id="Cleanmymac-X"><a href="#Cleanmymac-X" class="headerlink" title="Cleanmymac X"></a><a href="#Cleanmymac-X" title="Cleanmymac X"></a>Cleanmymac X<a href="#Cleanmymac-X"></a></h2><p>使用Windows，总是会强迫症下载一个清理垃圾的软件，比如：腾讯管家等。Mac上是否有呢？答案是肯定的。<br><img src="https://raw.githubusercontent.com/NicoNicoNi-LYF/imageHost/master/img/202110271806549.jpg" alt="img"><br>该软件主要：<br>1.清理系统缓冲垃圾、大文件<br>2.管理启动项（开机启动）<br>3.维护磁盘权限。<br>4.DNS刷新、内存检测等<br>5.UI好看（相较于腾讯等Mac上清理软件来说）<br>喜欢可以去订阅购买。<a target="_blank" rel="noopener" href="https://macpaw.com/">官网了解</a><br>另外，想体验一下的话；我可以提供一下破解版：</p>
+<p>点击查看旧版本 2019.06.29CleanMyMac.X</p>
+<p>链接:<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1URppw_yrenw0HIBF33Y8aQ">https://pan.baidu.com/s/1URppw_yrenw0HIBF33Y8aQ</a> 密码:2hl9</p>
+<p>2019.07.29更新CleanMyMac.X.v4.4.5<br>链接:<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1gAy3Lxi9XJ-uE691rnHO6g">https://pan.baidu.com/s/1gAy3Lxi9XJ-uE691rnHO6g</a> 密码:56to</p>
+<p>2019.09.08更新CleanMyMacX.v4.4.7<br>链接:<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1o3N_P-eGUcLUXsOmmQhiOA">https://pan.baidu.com/s/1o3N_P-eGUcLUXsOmmQhiOA</a> 密码:i947</p>
+<p>2019.11.25更新CleanMyMacX.v4.5.1<br>链接:<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1wu2rRxVDiQt9hcUhp3LQVQ">https://pan.baidu.com/s/1wu2rRxVDiQt9hcUhp3LQVQ</a> 密码:vu7e</p>
+<p>2020.04.18更新CleanMyMacX.v4.6.2：<br><a target="_blank" rel="noopener" href="https://72k.us/file/26158157-438151525">https://72k.us/file/26158157-438151525</a></p>
+<p>2020.12.25更新<br><a target="_blank" rel="noopener" href="https://089u.com/file/26158157-477434245">CleanMyMac.X.v4.7.2.dmg:https://089u.com/file/26158157-477434245</a></p>
+<p>（注意关闭SIP）</p>
+<h2 id="Final-Cut-Pro-X"><a href="#Final-Cut-Pro-X" class="headerlink" title="Final Cut Pro X"></a><a href="#Final-Cut-Pro-X" title="Final Cut Pro X"></a>Final Cut Pro X<a href="#Final-Cut-Pro-X"></a></h2><p>我觉得这个软件名气大到已经可以不用介绍了-_-||<br>Final Cut Pro X是为Mac出的专业级视频剪辑软件，依托于Mac OS和代理剪辑，可以允许Mac用户对视频进行高级操作。价格也相比Adobe的订阅来的划算。<br>官网链接🔗：<a target="_blank" rel="noopener" href="https://www.apple.com/final-cut-pro/">https://www.apple.com/final-cut-pro/</a><br><img src="https://raw.githubusercontent.com/NicoNicoNi-LYF/imageHost/master/img/202110271807002.png" alt="img"></p>
+<h2 id="Paragon-NTFS"><a href="#Paragon-NTFS" class="headerlink" title="Paragon NTFS"></a><a href="#Paragon-NTFS" title="Paragon NTFS"></a>Paragon NTFS<a href="#Paragon-NTFS"></a></h2><p>Mac端无法读取NTFS格式的U盘、硬盘；但是可以通过第三方应用实现；比如Paragon NTFS</p>
+<p><img src="https://raw.githubusercontent.com/NicoNicoNi-LYF/imageHost/master/img/202110271807733.jpg" alt="img"></p>
+<p><strong>我这边提供试用版本，以及试用重制（也就是，如果你不想购买；可以10天用一次激活器重置试用）</strong></p>
+<p>点击查看详情</p>
+<p>（试用重置器，在软件内部；下载整个文件即可。我写文章也没有要求付费；所以请注意你的态度和提问方式！！）<br>2019.11.25更新Paragon NTFS<br>链接:<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/10YjcR830uPfnt88d2YfqRw">https://pan.baidu.com/s/10YjcR830uPfnt88d2YfqRw</a> 密码:d6xq</p>
+<p>（注意关闭SIP）</p>
+<h2 id="PDF-Expert"><a href="#PDF-Expert" class="headerlink" title="PDF Expert"></a><a href="#PDF-Expert" title="PDF Expert"></a>PDF Expert<a href="#PDF-Expert"></a></h2><p>从英文翻译而来-PDF Expert是适用于iPhone，iPad和Mac的PDF编辑应用程序。它允许用户阅读，注释和编辑PDF，更改文本和图像，填写表格并签订合同。 PDF Expert最初于2010年为第一个iPad推出了iOS版本，现在在iPhone和Mac上受支持</p>
+<p><strong>下载地址：</strong></p>
+<p>点击查看详情</p>
+<p>（试用重置器，在软件内部；下载整个文件即可。我写文章也没有要求付费；所以请注意你的态度和提问方式！！）<br>2019.12.4更新PDF Expert v2.4.30<br>链接:<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1hp0AmdR4-H2XVyLk53R6NQ">https://pan.baidu.com/s/1hp0AmdR4-H2XVyLk53R6NQ</a> 密码:lkto</p>
+<p>（注意关闭SIP）</p>
+<h2 id="虚拟机——VMware"><a href="#虚拟机——VMware" class="headerlink" title="虚拟机——VMware"></a><a href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E2%80%94%E2%80%94VMware" title="虚拟机——VMware"></a>虚拟机——VMware<a href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E2%80%94%E2%80%94VMware"></a></h2><p>因为Mac上软件毕竟还是没有Windows那么多，所以……还是推荐大家下载安装一个虚拟机安装Windows，<br>Windwos 镜像下载：<a target="_blank" rel="noopener" href="https://msdn.itellyou.cn/">MSDN I Tell You</a></p>
+<h3 id="11-5-7"><a href="#11-5-7" class="headerlink" title="11.5.7"></a><a href="#11-5-7" title="11.5.7"></a>11.5.7<a href="#11-5-7"></a></h3><p>适用于BigSur以前的macOS</p>
+<p><a target="_blank" rel="noopener" href="https://089u.com/f/26158157-485659906-7b5056">VMware Fusion Pro 11.5.7 Mac：https://089u.com/f/26158157-485659906-7b5056</a><br>（访问密码：6146）</p>
+<p>在安装时，输入激活码：VUZQX-VPGWW-C1ZWQ-RWVX9-FP5EV</p>
+<h3 id="12-1"><a href="#12-1" class="headerlink" title="12.1"></a><a href="#12-1" title="12.1"></a>12.1<a href="#12-1"></a></h3><p>适用于BigSur版本的Intel Mac</p>
+<p><a target="_blank" rel="noopener" href="https://089u.com/f/26158157-485659526-3ccab6">VMware-Fusion-12.1Mac： https://089u.com/f/26158157-485659526-3ccab6</a><br>（访问密码：6146）</p>
+<p>在安装时，输入激活码：ZF3R0-FHED2-M80TY-8QYGC-NPKYF<br><strong>或者你可以到VMware申请账号，并申请VMware个人版激活密钥来免费使用VMware Fusion 12。</strong></p>
+<h2 id="视频提取软件——Downie"><a href="#视频提取软件——Downie" class="headerlink" title="视频提取软件——Downie"></a><a href="#%E8%A7%86%E9%A2%91%E6%8F%90%E5%8F%96%E8%BD%AF%E4%BB%B6%E2%80%94%E2%80%94Downie" title="视频提取软件——Downie"></a>视频提取软件——Downie<a href="#%E8%A7%86%E9%A2%91%E6%8F%90%E5%8F%96%E8%BD%AF%E4%BB%B6%E2%80%94%E2%80%94Downie"></a></h2><p>20.08.13更新：<br><a target="_blank" rel="noopener" href="https://089u.com/file/26158157-456894210">Downie 4.1.2.dmg: https://089u.com/file/26158157-456894210</a><br>20.08.10更新：<br>Downie.v4.0.16.dmg: <a target="_blank" rel="noopener" href="https://089u.com/file/26158157-452969679">https://089u.com/file/26158157-452969679</a><br>20.08.06更新：<br>Downie.v4.1.1.dmg: <a target="_blank" rel="noopener" href="https://089u.com/file/26158157-456332483">https://089u.com/file/26158157-456332483</a></p>
+<h2 id="软件卸载——Appcleaner"><a href="#软件卸载——Appcleaner" class="headerlink" title="软件卸载——Appcleaner"></a><a href="#%E8%BD%AF%E4%BB%B6%E5%8D%B8%E8%BD%BD%E2%80%94%E2%80%94Appcleaner" title="软件卸载——Appcleaner"></a>软件卸载——Appcleaner<a href="#%E8%BD%AF%E4%BB%B6%E5%8D%B8%E8%BD%BD%E2%80%94%E2%80%94Appcleaner"></a></h2><p>AppCleaner_3.5.zip: <a target="_blank" rel="noopener" href="https://089u.com/file/26158157-445908121">https://089u.com/file/26158157-445908121</a><br>这款软件使用，可以参考我视频：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1bK4y1875T">https://www.bilibili.com/video/BV1bK4y1875T</a><br>（最近比较忙，图和文字说明……以后补）</p>
+<h1 id="安装Homebrew"><a href="#安装Homebrew" class="headerlink" title="安装Homebrew"></a><a href="#%E5%AE%89%E8%A3%85Homebrew" title="安装Homebrew"></a>安装Homebrew<a href="#%E5%AE%89%E8%A3%85Homebrew"></a></h1><p>内容方法过多，已经新开一帖<br>请移步到：<a target="_blank" rel="noopener" href="https://www.mintimate.cn/2020/04/05/Homebrew/">https://www.mintimate.cn/2020/04/05/Homebrew/</a></p>
+<h2 id="基础设置使用"><a href="#基础设置使用" class="headerlink" title="基础设置使用"></a><a href="#%E5%9F%BA%E7%A1%80%E8%AE%BE%E7%BD%AE%E4%BD%BF%E7%94%A8" title="基础设置使用"></a>基础设置使用<a href="#%E5%9F%BA%E7%A1%80%E8%AE%BE%E7%BD%AE%E4%BD%BF%E7%94%A8"></a></h2><p>配置文件：/usr/local/etc/mongod.conf<br>日志目录路径：/usr/local/var/log/mongodb<br>数据目录路径：/usr/local/var/mongodb</p>
+<h1 id="Mac终端类"><a href="#Mac终端类" class="headerlink" title="Mac终端类"></a><a href="#Mac%E7%BB%88%E7%AB%AF%E7%B1%BB" title="Mac终端类"></a>Mac终端类<a href="#Mac%E7%BB%88%E7%AB%AF%E7%B1%BB"></a></h1><h2 id="安装ADB——fastboot刷机走起"><a href="#安装ADB——fastboot刷机走起" class="headerlink" title="安装ADB——fastboot刷机走起"></a><a href="#%E5%AE%89%E8%A3%85ADB%E2%80%94%E2%80%94fastboot%E5%88%B7%E6%9C%BA%E8%B5%B0%E8%B5%B7" title="安装ADB——fastboot刷机走起"></a>安装ADB——fastboot刷机走起<a href="#%E5%AE%89%E8%A3%85ADB%E2%80%94%E2%80%94fastboot%E5%88%B7%E6%9C%BA%E8%B5%B0%E8%B5%B7"></a></h2><h3 id="使用brew"><a href="#使用brew" class="headerlink" title="使用brew"></a><a href="#%E4%BD%BF%E7%94%A8brew" title="使用brew"></a>使用brew<a href="#%E4%BD%BF%E7%94%A8brew"></a></h3><p>终端里一条命令：</p>
+<pre><code>brew install Caskroom/cask/android-platform-tools
 </code></pre>
-<h4 id="二-素数与数组下标相同"><a href="#二-素数与数组下标相同" class="headerlink" title="二.素数与数组下标相同"></a>二.素数与数组下标相同</h4><pre><code class="C">#include&lt;stdio.h&gt;
-#include&lt;math.h&gt;
-#define swap(a,b)&#123;a=a^b;b=a^b;a=a^b;&#125;//定义数字交换的宏
-
-int main(void) &#123;
-    
-    
-    int sqr;//从1开始;定义sqr缩小判断范围
-    const int N=1000;
-    printf(&quot;输出2-%d之间的素数\n&quot;,N);
-    int prime[N+1]=&#123;0,0,2,0&#125;;//定义数组存放素数,除prime[2]外全部初始化为0
-    for(int i=3;i&lt;=N;i+=2)&#123;//判断从3到N的奇数,排除大于2偶数
-       // if(i%2==0) continue;//如果i为2的倍数,不是素数,继续下次循环 i++时用
-        
-        sqr=sqrt(i);
-        int flag=0;
-        for(int j=3;j&lt;=sqr;j+=2)&#123;//判断从3到sqr的奇数是否能整除i
-            if(i%j==0) &#123;
-                flag=1;
-                break;
-            &#125;
-        &#125;
-        if(flag) continue;//如果能被整除,跳过该循环
-        
-        prime[i]=i;
-    &#125;
-    for(int i=0;i&lt;=N;i++)
-        if(prime[i]!=0)
-            printf(&quot;%d\t&quot;,prime[i]);
-    puts(&quot;&quot;);
-    
-    return (0);
-&#125;
+<p>测试是否安装成功：</p>
+<pre><code>adb
 </code></pre>
-<h3 id="新版本：主函数中实现"><a href="#新版本：主函数中实现" class="headerlink" title="新版本：主函数中实现"></a>新版本：主函数中实现</h3><p><strong>思路：</strong><br>1.大于2的偶数都不是质数，只对奇数进行整除判断<br>2.只整除小于等于no的平方根的质数//由长方形面积和约数</p>
-<p><img src="https://raw.githubusercontent.com/NicoNicoNi-LYF/imageHost/master/img/202110262201652.png" alt="算法依据"></p>
-<pre><code class="C">#include&lt;stdio.h&gt;
-
-int *prime(int n)&#123;
-    int prime[100000]=&#123;0&#125;;//数组元素个数可以扩展
-    int ptr =0;
-    prime[ptr++]=2;
-    prime[ptr++]=3;
-    for(int no=5;no&lt;=n;no+=2)&#123;//大于2的偶数都不是质数
-        int flag=0;
-        
-        for(int i=1;prime[i]*prime[i]&lt;=no;i++)&#123;//只整除小于等于no的平方根的质数
-            if (no%prime[i]==0) &#123;
-                flag=1;
-                break;
-            &#125;
-        &#125;
-        if(!flag)
-            prime[ptr++]=no;
-    &#125;
-    
-    return prime;
-&#125;
-int main(void) &#123;
-    const int N=100000;//求N及以下的素数
-    int *a=prime(N);
-    int counter=0;
-    for(int i=0;i&lt;N/2;i++)&#123;//素数个数不会大于N/2
-        if(a[i]==0) break;//遇到0,则后面皆为0 跳出
-        printf(&quot;%d\t&quot;,a[i]);
-        counter++;
-        
-    &#125;
-    printf(&quot;\n\t1~%d的素数y个数为:%d\n&quot;,N,counter);//测速时可以注释掉输出
-    
-    return (0);
-&#125;
+<p>如果出现命令提示，而不是“⌘ not found”，即安装成功。</p>
+<h2 id="同时安装Python2-7和Python3-7"><a href="#同时安装Python2-7和Python3-7" class="headerlink" title="同时安装Python2.7和Python3.7"></a><a href="#%E5%90%8C%E6%97%B6%E5%AE%89%E8%A3%85Python2-7%E5%92%8CPython3-7" title="同时安装Python2.7和Python3.7"></a>同时安装Python2.7和Python3.7<a href="#%E5%90%8C%E6%97%B6%E5%AE%89%E8%A3%85Python2-7%E5%92%8CPython3-7"></a></h2><h3 id="使用brew："><a href="#使用brew：" class="headerlink" title="使用brew："></a><a href="#%E4%BD%BF%E7%94%A8brew%EF%BC%9A" title="使用brew："></a>使用brew：<a href="#%E4%BD%BF%E7%94%A8brew%EF%BC%9A"></a></h3><pre><code>brew install python3
 </code></pre>
-<h2 id="算法性能直观测试"><a href="#算法性能直观测试" class="headerlink" title="算法性能直观测试"></a>算法性能直观测试</h2><p><strong>可以将主函数体放置于下面的代码测试</strong>不同算法的性能**</p>
-<pre><code class="java">#include &lt;ctime&gt;//需要额外添加该编译预处理指令
-
-int main(void) &#123;
-    int tstart ,tstop; //分别记录起始和结束时间
-    //测试函数花费时间
-    tstart=clock ();
-    ····················须测速代码
-    tstop=clock ();
-    printf(&quot;花费时间(ms):%d\n&quot;,tstop- tstart);//ms为单位
-    return (0);
-&#125;
-
+<p>因为Mac自带Python2.7，所以使用brew安装Python3即可完成共存。<br><strong>千万不要卸载Mac的Python2.7，会造成系统严重Bugs，因为Mac系统很多程序依赖自带的Python2.如LXcode</strong></p>
+<h2 id="终端通过代理联网"><a href="#终端通过代理联网" class="headerlink" title="终端通过代理联网"></a><a href="#%E7%BB%88%E7%AB%AF%E9%80%9A%E8%BF%87%E4%BB%A3%E7%90%86%E8%81%94%E7%BD%91" title="终端通过代理联网"></a>终端通过代理联网<a href="#%E7%BB%88%E7%AB%AF%E9%80%9A%E8%BF%87%E4%BB%A3%E7%90%86%E8%81%94%E7%BD%91"></a></h2><pre><code>export ALL_PROXY=socks5://127.0.0.1:1086
+</code></pre>
+<p>127.0.0.1是本地代理，1086是代理端口</p>
+<h1 id="隐藏文件显示-隐藏"><a href="#隐藏文件显示-隐藏" class="headerlink" title="隐藏文件显示/隐藏"></a><a href="#%E9%9A%90%E8%97%8F%E6%96%87%E4%BB%B6%E6%98%BE%E7%A4%BA-%E9%9A%90%E8%97%8F" title="隐藏文件显示/隐藏"></a>隐藏文件显示/隐藏<a href="#%E9%9A%90%E8%97%8F%E6%96%87%E4%BB%B6%E6%98%BE%E7%A4%BA-%E9%9A%90%E8%97%8F"></a></h1><p>使用终端：</p>
+<pre><code>//显示隐藏文件
+defaults write com..finder AppleShowAllFiles -bool true
+//不显示隐藏文件
+defaults write com..finder AppleShowAllFiles -bool false
+</code></pre>
+<p>重启Finder：窗口左上角的苹果标志–&gt;强制退出–&gt;Finder–&gt;重新启动</p>
+<p><strong>如果只是想暂时看隐藏文件</strong></p>
+<pre><code>⌘+⇧+.
 </code></pre>
 
             </div>
@@ -571,7 +501,7 @@ int main(void) &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/blog-temp/about" rel="external nofollow noreferrer">起风了</a>
+                    <a href="/blog-temp/about" rel="external nofollow noreferrer">冷少</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -581,7 +511,7 @@ int main(void) &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://niconicoli.com/blog-temp/blog-temp/cl1dtnstg0003r3waf6212sbe/">https://niconicoli.com/blog-temp/blog-temp/cl1dtnstg0003r3waf6212sbe/</a>
+                    <a href="https://niconicoli.com/blog-temp/blog-temp/cl1dudpzj00095owagnu7a9en/">https://niconicoli.com/blog-temp/blog-temp/cl1dudpzj00095owagnu7a9en/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -594,7 +524,7 @@ int main(void) &#123;
                     All articles in this blog are used except for special statements
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     reprint polocy. If reproduced, please indicate source
-                    <a href="/blog-temp/about" target="_blank">起风了</a>
+                    <a href="/blog-temp/about" target="_blank">冷少</a>
                     !
                 </span>
             </div>
@@ -618,11 +548,7 @@ int main(void) &#123;
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/blog-temp/tags/C-C/">
-                                    <span class="chip bg-color">C/C++</span>
-                                </a>
-                            
+                            <span class="chip bg-color">No tag</span>
                         </div>
                     
                 </div>
@@ -666,23 +592,77 @@ int main(void) &#123;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/blog-temp/cl1dtnsty000sr3wagqa23kjs/">
+                <a href="/blog-temp/cl1dudpz500015owa2u8r80vk/">
                     <div class="card-image">
                         
+                        <img src="https://raw.githubusercontent.com/NicoNicoNi-LYF/imageHost/master/img2/202110281754562.jpg" class="responsive-img" alt="正在交往的石上君和伊井野同学]">
                         
-                        <img src="/blog-temp/medias/featureimages/ACG-12.jpg" class="responsive-img" alt="练习项目">
-                        
-                        <span class="card-title">练习项目</span>
+                        <span class="card-title">正在交往的石上君和伊井野同学]</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            网页项目固定栏
+                            正在交往的石上君和伊井野同学
 
 
-More info: 固定栏
-生成器More info: 表格生成器
+
+曾經最討厭的戀人
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -690,63 +670,8 @@ More info: 固定栏
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-18
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-23
                         </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/blog-temp/categories/%E9%A1%B9%E7%9B%AE/" class="post-category">
-                                    项目
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/blog-temp/cl1dtnstu000nr3wah5xk6z3r/">
-                    <div class="card-image">
-                        
-                        <img src="https://niconiconi-lyf.github.io/2020/05/11/bu-hui-zhen-de-you-ren-bu-xi-huan-xiao-mi-zi-ba-bu-hui-ba-bu-hui-ba/小弥子-3.JP2" class="responsive-img" alt="不会真的有人不喜欢小弥子吧,不会吧不会吧">
-                        
-                        <span class="card-title">不会真的有人不喜欢小弥子吧,不会吧不会吧</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-能看见会动的小弥子我就很满足了mikomikomi
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-11
-                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -755,8 +680,8 @@ More info: 固定栏
                                     ACG
                                 </a>
                             
-                            <a href="/blog-temp/categories/ACG/Anime/" class="post-category">
-                                    Anime
+                            <a href="/blog-temp/categories/ACG/Manga/" class="post-category">
+                                    Manga
                                 </a>
                             
                             
@@ -770,6 +695,51 @@ More info: 固定栏
                         <span class="chip bg-color">老婆</span>
                     </a>
                     
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/blog-temp/cl1dudpzt000g5owad0e75mh1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog-temp/medias/featureimages/ACG-18.jpg" class="responsive-img" alt="实用网站集合">
+                        
+                        <span class="card-title">实用网站集合</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            爱生活
+  AI音乐推荐： [https://www.gnoosic.com/faves.php/)
+  RAP： [https://foreignrap.com/)
+  壁纸    [https://wallhaven.cc/)
+  私人
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/blog-temp/categories/%E8%B5%84%E6%96%99/" class="post-category">
+                                    资料
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
                 </div>
                 
             </div>
